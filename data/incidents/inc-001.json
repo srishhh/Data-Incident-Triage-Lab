@@ -1,0 +1,23 @@
+{
+  "incident_id": "INC-001",
+  "pipeline_name": "customer_data_etl",
+  "severity": "HIGH",
+  "status": "FAILED",
+  "timestamp": "2026-11-25T03:00:00",
+  "description": "The customer data ETL job failed while attempting to establish a database connection.",
+  "expected_records": 50000,
+  "processed_records": 0,
+  "error_logs": [
+    "02:00 AM - Database connection successful",
+    "02:30 AM - Database health check: HEALTHY",
+    "02:55 AM - Network connectivity check from ETL host: FAILED",
+    "03:00 AM - ETL execution started",
+    "03:00 AM - ConnectionTimeoutError: unable to establish database connection",
+    "03:05 AM - Database-local health check: HEALTHY"
+  ],
+  "available_diagnostics": {
+    "database_local_health": "HEALTHY at 02:30 and 03:05",
+    "etl_to_database_network_check": "FAILED at 02:55",
+    "recent_configuration_changes": "Not provided"
+  }
+}

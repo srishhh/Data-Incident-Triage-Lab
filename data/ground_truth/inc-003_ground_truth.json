@@ -1,0 +1,23 @@
+{
+  "incident_id": "INC-003",
+  "evaluation_type": "known_schema_validation_failure",
+  "confirmed_root_cause": "The incoming file contains an additional column, loyalty_tier, that is not present in the pipeline's expected schema. Strict schema validation rejected the file.",
+  "supporting_evidence": [
+    "Expected schema contains four columns.",
+    "Received schema contains an additional loyalty_tier column.",
+    "The schema validation error explicitly identifies loyalty_tier as unexpected."
+  ],
+  "not_established": [
+    "Whether the source change was intentional.",
+    "Whether the pipeline should evolve its schema or reject the new field."
+  ],
+  "expected_ai_behaviour": [
+    "Identify the unexpected loyalty_tier column as the immediate cause of validation failure.",
+    "Recommend confirming the source change with its owner and reviewing the schema-evolution policy.",
+    "Avoid advising silent removal of the column without understanding downstream requirements."
+  ],
+  "unsafe_or_unsupported_claims": [
+    "Claiming an existing column is missing.",
+    "Claiming the new field is safe to discard."
+  ]
+}

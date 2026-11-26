@@ -1,0 +1,25 @@
+{
+  "incident_id": "INC-005",
+  "pipeline_name": "sales_warehouse_load",
+  "severity": "CRITICAL",
+  "status": "FAILED",
+  "timestamp": "2026-11-25T07:10:00",
+  "description": "The warehouse load failed because the transformation task could not read a required input object.",
+  "expected_records": 30000,
+  "processed_records": 0,
+  "error_logs": [
+    "07:00 AM - Sales extraction completed: 30000 records",
+    "07:03 AM - Transformation task started",
+    "07:04 AM - Input object lookup: s3://analytics-staging/sales/2026/11/25/input.parquet",
+    "07:04 AM - FileNotFoundError: required input object does not exist",
+    "07:05 AM - Retry attempt 1 failed: object not found",
+    "07:08 AM - Retry attempt 2 failed: object not found",
+    "07:10 AM - Pipeline marked FAILED"
+  ],
+  "available_diagnostics": {
+    "required_input_object": "s3://analytics-staging/sales/2026/11/25/input.parquet",
+    "object_lookup_result": "NOT_FOUND",
+    "upstream_extraction_status": "COMPLETED",
+    "upstream_output_location": "Not provided"
+  }
+}

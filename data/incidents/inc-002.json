@@ -1,0 +1,24 @@
+{
+  "incident_id": "INC-002",
+  "pipeline_name": "orders_incremental_load",
+  "severity": "HIGH",
+  "status": "COMPLETED_WITH_WARNING",
+  "timestamp": "2026-11-25T04:15:00",
+  "description": "The incremental load completed, but the destination contains fewer records than the source extraction reported.",
+  "expected_records": 12000,
+  "processed_records": 10800,
+  "error_logs": [
+    "04:00 AM - Source extraction started",
+    "04:05 AM - Source extraction completed: 12000 records",
+    "04:08 AM - Transformation started",
+    "04:12 AM - Transformation completed: 10800 records",
+    "04:13 AM - Destination load completed: 10800 records",
+    "04:15 AM - Validation warning: source and destination counts differ by 1200"
+  ],
+  "available_diagnostics": {
+    "source_count": 12000,
+    "transformation_output_count": 10800,
+    "destination_count": 10800,
+    "rejected_record_details": "Not provided"
+  }
+}

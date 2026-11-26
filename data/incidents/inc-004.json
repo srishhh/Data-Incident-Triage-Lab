@@ -1,0 +1,24 @@
+{
+  "incident_id": "INC-004",
+  "pipeline_name": "daily_payments_aggregation",
+  "severity": "HIGH",
+  "status": "COMPLETED_WITH_WARNING",
+  "timestamp": "2026-11-25T06:45:00",
+  "description": "The aggregation job completed, but duplicate payment identifiers were detected in the destination table.",
+  "expected_records": 25000,
+  "processed_records": 25000,
+  "error_logs": [
+    "06:00 AM - Source extraction completed: 25000 records",
+    "06:15 AM - Transformation completed: 25000 records",
+    "06:30 AM - Destination write completed: 25000 records",
+    "06:40 AM - Data quality check started",
+    "06:45 AM - Duplicate check: 420 repeated payment_id values detected",
+    "06:45 AM - Pipeline marked COMPLETED_WITH_WARNING"
+  ],
+  "available_diagnostics": {
+    "duplicate_key": "payment_id",
+    "duplicate_count_reported": 420,
+    "write_mode": "Not provided",
+    "source_duplicate_count": "Not provided"
+  }
+}

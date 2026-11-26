@@ -1,0 +1,22 @@
+{
+  "incident_id": "INC-005",
+  "evaluation_type": "known_missing_input_dependency",
+  "confirmed_root_cause": "The transformation task could not locate the required input object at the configured S3 path. The upstream extraction reported success, but its actual output location is not provided.",
+  "supporting_evidence": [
+    "The transformation task looked up a specific S3 object.",
+    "The object lookup returned NOT_FOUND.",
+    "Both retry attempts failed with object not found."
+  ],
+  "not_established": [
+    "Whether the upstream job wrote to a different path, whether the object was not delivered, or whether the configured path is incorrect."
+  ],
+  "expected_ai_behaviour": [
+    "Identify the missing required input object as the immediate cause of the transformation failure.",
+    "Recommend verifying the upstream output location, object key, bucket, permissions, and handoff timing.",
+    "Avoid assuming that upstream success guarantees the expected object was written to the expected location."
+  ],
+  "unsafe_or_unsupported_claims": [
+    "Claiming the object was deleted.",
+    "Claiming an IAM permission failure when the error specifically reports object not found."
+  ]
+}
